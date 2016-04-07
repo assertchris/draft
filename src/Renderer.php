@@ -50,9 +50,18 @@ class Renderer
         $converter = new CommonMarkConverter();
         $converted = $converter->convertToHtml($unconverted);
 
+        $layoutPath = $this->project->getLayoutPath();
+
+        if (!file_exists($layoutPath)) {
+            throw new LogicException("layoutPath missing");
+        }
+
+        $layoutContent = file_get_contents($layoutPath);
+        $convertedInLayout = str_replace("{{ content }}", $converted, $layoutContent);
+
         $htmlFile = join(DIRECTORY_SEPARATOR, [$downloadPath, $outputFolder, "book.html"]);
 
-        file_put_contents($htmlFile, $converted);
+        file_put_contents($htmlFile, $convertedInLayout);
     }
 
     /**

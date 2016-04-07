@@ -23,6 +23,11 @@ class RendererTest extends Test
     /**
      * @var string
      */
+    private $layoutPath = __DIR__ . "/../resources/templates/layout.html";
+
+    /**
+     * @var string
+     */
     private $htmlPath = __DIR__ . "/downloads/assertchris/sample/book/book.html";
 
     /**
@@ -30,7 +35,7 @@ class RendererTest extends Test
      */
     public function itConvertsProjects()
     {
-        $project = new Project($this->name, $this->downloadPath);
+        $project = new Project($this->name, $this->downloadPath, $this->layoutPath);
 
         $renderer = new Renderer($project);
         $renderer->render();

@@ -25,7 +25,7 @@ class DownloaderTest extends Test
      */
     public function itDownloadsProjects()
     {
-        $project = new Project($this->name, $this->downloadPath);
+        $project = new Project($this->name, $this->downloadPath, "");
 
         $downloader = new Downloader($project);
         $downloader->download();

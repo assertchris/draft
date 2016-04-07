@@ -27,12 +27,18 @@ class Project
     private $downloadPath;
 
     /**
+     * @var string
+     */
+    private $layoutPath;
+
+    /**
      * @param string $name
      * @param string $downloadPath
+     * @param string $layoutPath
      *
      * @throws InvalidArgumentException
      */
-    public function __construct($name, $downloadPath)
+    public function __construct($name, $downloadPath, $layoutPath)
     {
         if (!is_string($downloadPath)) {
             throw new InvalidArgumentException("downloadPath is not a string");
@@ -40,6 +46,7 @@ class Project
 
         $this->name = $name;
         $this->downloadPath = $downloadPath;
+        $this->layoutPath = $layoutPath;
     }
 
     /**
@@ -104,5 +111,13 @@ class Project
     public function getDownloadPath()
     {
         return $this->downloadPath;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLayoutPath()
+    {
+        return $this->layoutPath;
     }
 }

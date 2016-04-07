@@ -2,7 +2,9 @@
     "name": "draft/draft",
     "require": {
         "php": "^5.6 || ^7.0",
-        "league/commonmark": "^0.13"
+        "league/commonmark": "^0.13",
+        "symfony/dom-crawler": "^3.0",
+        "symfony/css-selector": "^3.0"
     },
     "require-dev": {
         "mockery/mockery": "^0.9",
