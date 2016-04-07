@@ -1,0 +1,21 @@
+{
+    "name": "draft/draft",
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "league/commonmark": "^0.13"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9",
+        "phpunit/phpunit": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Draft\\Draft\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Draft\\Draft\\Test\\": "tests"
+        }
+    }
+}
