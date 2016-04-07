@@ -2,6 +2,8 @@
 
 namespace Draft\Draft;
 
+use LogicException;
+
 class Downloader
 {
     /**
@@ -35,9 +37,14 @@ class Downloader
      */
     public function download()
     {
+        $verbose = $this->getVerboseString();
+
         $name = $this->project->getName();
         $downloadPath = $this->project->getDownloadPath();
-        $verbose = $this->getVerboseString();
+
+        if (file_exists($downloadPath)) {
+            throw new LogicException("downloadPath is not empty");
+        }
 
         mkdir($downloadPath, $mode = 0777, $recursive = true);
         chdir($downloadPath);

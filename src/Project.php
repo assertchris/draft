@@ -34,8 +34,8 @@ class Project
      */
     public function __construct($name, $downloadPath)
     {
-        if (!is_string($downloadPath) || file_exists($downloadPath)) {
-            throw new InvalidArgumentException("downloadPath is invalid");
+        if (!is_string($downloadPath)) {
+            throw new InvalidArgumentException("downloadPath is not a string");
         }
 
         $this->name = $name;
