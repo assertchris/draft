@@ -2,13 +2,13 @@
 
 namespace Draft\Draft\Test;
 
-use Draft\Draft\Converter;
 use Draft\Draft\Project;
+use Draft\Draft\Renderer;
 
 /**
- * @covers Draft\Draft\Converter
+ * @covers Draft\Draft\Renderer
  */
-class ConverterTest extends Test
+class RendererTest extends Test
 {
     /**
      * @var string
@@ -32,8 +32,8 @@ class ConverterTest extends Test
     {
         $project = new Project($this->name, $this->downloadPath);
 
-        $downloader = new Converter($project);
-        $downloader->convert();
+        $renderer = new Renderer($project);
+        $renderer->render();
 
         $this->assertFileExists($this->htmlPath);
 

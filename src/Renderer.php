@@ -5,7 +5,7 @@ namespace Draft\Draft;
 use League\CommonMark\CommonMarkConverter;
 use LogicException;
 
-class Converter
+class Renderer
 {
     /**
      * @var Project
@@ -21,9 +21,9 @@ class Converter
     }
 
     /**
-     * Converts a manuscript to a book.
+     * Renders a manuscript to a book.
      */
-    public function convert()
+    public function render()
     {
         $downloadPath = $this->project->getDownloadPath();
         $inputFolder = $this->project->getInputFolder();
